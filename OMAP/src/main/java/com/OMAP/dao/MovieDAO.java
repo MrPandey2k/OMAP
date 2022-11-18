@@ -19,7 +19,9 @@ public class MovieDAO implements IMovieDAO {
 	public List<Movie> getMovies() throws Exception {
 		List<Movie> allMovies = new ArrayList<Movie>();
 		
+
 		String rawJson = networkDAO.request("https://raw.githubusercontent.com/MrPandey2k/OMAP/main/movies.json");
+		
 		
 		JSONArray movies = new JSONArray(rawJson);
 		//JSONArray movies = root.getJSONArray("");
