@@ -15,12 +15,15 @@ body {
     box-shadow: 0px 0px 20px 0px black !important;
     
 }
+
 #moviePoster {
     padding-bottom: 1em;
 }
+
 .btnHome {
     padding-bottom: 1em;
 }
+
 .tableHead {
     color: black;
 }
