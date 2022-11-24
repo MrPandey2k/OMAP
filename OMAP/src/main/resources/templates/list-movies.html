@@ -36,7 +36,7 @@
 			<table class="table table-bordered" id="movieList">
 				<!-- Table Heading -->
 				<thead class="tableHead">
-					<tr class="bg-danger">
+					<tr class="bg-danger" id="heading">
 						<th>Movie Poster</th>
 						<th>Movie Name</th>
 						<th>Release Year</th>
@@ -51,11 +51,11 @@
 					<tr th:each="movies : ${ListMovies}" th:some-field="${movies.movieId}" th:onclick="rowClicked(this.getAttribute('some-field'))">
 						<!-- Thmyeleaf/JSON Reference for Movie Poster, Name, Year, Runtime, Director, and Stars -->
 						<td id="poster"><img th:src="${movies.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster"></td>
-						<td th:text="${movies.movieName}" />
-						<td th:text="${movies.year}" />
-						<td th:text="${movies.runtime}" />
-						<td th:text="${movies.director}" />
-						<td th:text="${movies.starOne}" />
+						<td th:text="${movies.movieName}">
+						<td th:text="${movies.year}">
+						<td th:text="${movies.runtime}">
+						<td th:text="${movies.director}">
+						<td th:text="${movies.starOne}">
 					</tr>
 				</tbody>
 			</table>
