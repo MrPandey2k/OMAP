@@ -13,7 +13,6 @@ body {
 #movieList {
     border-color: black;
     box-shadow: 0px 0px 20px 0px black !important;
-    
 }
 #moviePoster {
     padding-bottom: 1em;
@@ -50,4 +49,8 @@ body {
 
 #poster {
     text-align: center;
+}
+
+#heading th {
+    min-width: 150px;
 }
