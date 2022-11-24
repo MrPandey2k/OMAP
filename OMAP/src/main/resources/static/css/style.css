@@ -13,8 +13,14 @@ body {
 #movieList {
     border-color: black;
     box-shadow: 0px 0px 20px 0px black !important;
+    
 }
-
+#moviePoster {
+    padding-bottom: 1em;
+}
+.btnHome {
+    padding-bottom: 1em;
+}
 .tableHead {
     color: black;
 }
@@ -22,6 +28,10 @@ body {
 .tableBody {
     background-color: #222222;
     color: white;
+}
+
+.tableBody tr:hover {
+	background-color: #fa4144; 
 }
 
 .buttonLink {

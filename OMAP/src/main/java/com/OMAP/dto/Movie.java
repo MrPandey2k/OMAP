@@ -11,7 +11,7 @@ public class Movie {
 	public String posterLink; // url img to movie poster
 	public int year;
 	public float imdbRating;
-	public String runtine;
+	public String runtime;
 	public String director;
 	public String starOne;
 	public String starTwo;
@@ -19,7 +19,14 @@ public class Movie {
 	public String starFour;
 	public String overview;
 	public String gross;
-
+	public String genre;
+	
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	// Getters and Setters
 	public String getMovieName() {
 		return movieName;
@@ -45,11 +52,11 @@ public class Movie {
 	public void setImdbRating(float imdbRating) {
 		this.imdbRating = imdbRating;
 	}
-	public String getRuntine() {
-		return runtine;
+	public String getRuntime() {
+		return runtime;
 	}
-	public void setRuntine(String runtine) {
-		this.runtine = runtine;
+	public void setRuntime(String runtine) {
+		this.runtime = runtine;
 	}
 	public String getDirector() {
 		return director;

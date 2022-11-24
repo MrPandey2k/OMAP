@@ -44,6 +44,7 @@ public class MovieDAO implements IMovieDAO {
 				String starFour = jsonMovie.getString("Star4");
 				String overview =jsonMovie.getString("Overview");
 				String gross = jsonMovie.getString("Gross");
+				String genre = jsonMovie.getString("Genre");
 				
 				//map fields
 				movie.setMovieId(movieId);
@@ -51,7 +52,7 @@ public class MovieDAO implements IMovieDAO {
 				movie.setPosterLink(posterLink);
 				movie.setYear(year);
 				movie.setImdbRating(imdbRating);
-				movie.setRuntine(runtime);
+				movie.setRuntime(runtime);
 				movie.setDirector(director);
 				movie.setStarOne(starOne);
 				movie.setStarTwo(starTwo);
@@ -59,6 +60,7 @@ public class MovieDAO implements IMovieDAO {
 				movie.setStarFour(starFour);
 				movie.setOverview(overview);
 				movie.setGross(gross);
+				movie.setGenre(genre);
 				
 				allMovies.add(movie);
 			}
