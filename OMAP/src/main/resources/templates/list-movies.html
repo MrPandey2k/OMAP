@@ -40,10 +40,8 @@
 				</thead>
 
 				<tbody class="tableBody">
-					<tr th:each="movies : ${testListMovies}"
-						th:some-field="${movies.movieId}" 
-						th:onclick="rowClicked(this.getAttribute('some-field'))">
-						<td><img th:src="${movies.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster"></td>
+					<tr th:each="movies : ${testListMovies}" th:some-field="${movies.movieId}" th:onclick="rowClicked(this.getAttribute('some-field'))">
+						<td id="poster"><img th:src="${movies.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster"></td>
 						<td th:text="${movies.movieName}" />
 						<td th:text="${movies.year}" />
 						<td th:text="${movies.runtime}" />
