@@ -20,9 +20,7 @@ public class MovieDAO implements IMovieDAO {
 	public List<Movie> getMovies() throws Exception {
 		// Instantiate ArrayList, JSON Endpoint, and JSON Array
 		List<Movie> allMovies = new ArrayList<Movie>();
-		
 		String rawJson = networkDAO.request("https://raw.githubusercontent.com/MrPandey2k/OMAP/main/movies.json");
-		
 		JSONArray movies = new JSONArray(rawJson);
 		
 		// Try-Catch to create movie object
@@ -62,6 +60,7 @@ public class MovieDAO implements IMovieDAO {
 				movie.setGross(gross);
 				movie.setGenre(genre);
 				
+				// Append data to List of movie objects
 				allMovies.add(movie);
 			}
 		} 

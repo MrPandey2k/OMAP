@@ -19,51 +19,57 @@
 	</head>
 	<body>
         <div class="container">
+			<!-- Button to return to /list -->
             <div class="btnHome">
                 <a href="/list" class="buttonLink">
-				<button href="/list" type="button" class="btn btn-danger">Home</button>
-			</a>
+					<button href="/list" type="button" class="w-100 btn btn-danger">Back to List</button>
+				</a>
             </div>
+
+			<!-- Heading -->
             <div class="row">
                 <div class="col-sm-3">
+					<!-- Movie & Year -->
                     <h3 th:text="${selectedMovie.movieName}"></h3>
                     <h6 th:text="${selectedMovie.year}"></h6>
                 </div>
-
             </div>
 
-                <hr class="break">
+            <hr class="break">
+
+			<!-- Body Content -->
             <div class="row">
                 <div class="col-sm-10">
-                <p th:text="${selectedMovie.overview}"></p>
+					<!-- Description -->
+                	<p th:text="${selectedMovie.overview}"></p>
+
                     <hr class="break">
-                    <h6>Director</h6>
+
+					<!-- Director -->
+                    <h5><strong>Director</strong></h5>
                     <p th:text="${selectedMovie.director}"></p>
 
                     <hr class="break">
-                    <h6>Stars</h6>
+
+					<!-- Actors -->
+                    <h5><strong>Stars</strong></h5>
                     <p th:text="${selectedMovie.starOne}"></p>
                     <p th:text="${selectedMovie.starTwo}"></p>
                    	<p th:text="${selectedMovie.starThree}"></p>
               		<p th:text="${selectedMovie.starFour}"></p>
    
                     <hr class="break">
-
                 </div>
 
-			<div class="col-sm-2">
-				<img th:src="${selectedMovie.posterLink}" class="rounded"
-					id="moviePoster" alt="Movie Poster">
-
-				<h6 th:text="${selectedMovie.runtime}"></h6>
-				<h6 th:text="${selectedMovie.genre}"></h6>
-
-				<h6 th:text="${selectedMovie.imdbRating}"></h6>
+				<div class="col-sm-2">
+					<!-- Poster, Runtime, Genre & Rating -->
+					<img th:src="${selectedMovie.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster">
+					<h6 th:text="${selectedMovie.runtime}"></h6>
+					<h6 th:text="${selectedMovie.genre}"></h6>
+					<h6 th:text="${selectedMovie.imdbRating}"></h6>
+				</div>
 			</div>
-		</div>
-            
-		<br />
-		<br />
+			<br/>
 		</div>
 	</body>
 </html>

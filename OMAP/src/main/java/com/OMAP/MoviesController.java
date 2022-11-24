@@ -27,37 +27,41 @@ public class MoviesController {
 	private void loadData() {
 		try {
 			allMovies = moviedao.getMovies();
-			testMovies = allMovies.subList(63, 70); // filtering the array for these elements just to test display
 		}
 		// Any Exception will be caught and returned to the user in the output
 		catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	// Mapping for localhost:8080/
+	// Mapping for localhost:8080/ (Redirects to /list)
 	@RequestMapping(value = "/")
 	public String index() {
-		return "index";
+		return "redirect:/list";
 	}
 
+	// Mapping for localhost:8080/movie-details
 	@RequestMapping("/movie-details")
 	public String movieDetails(@RequestParam(name="id", required=true) int id, Model model) {
+		// Select movie from "id" param in URL
 		Movie selectedMovie = allMovies.get(id);
+		
+		// Add content to /movie-details page
 		model.addAttribute("selectedMovie",selectedMovie);
+
 		return "movie-details";
 	}
 	
 	// Mapping for localhost:8080/list
 	@GetMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("testListMovies", allMovies);
+		// Select all movies and add content to /list page
+		model.addAttribute("ListMovies", allMovies);
 		return "list-movies";
 	}
 
 	// Error handling for any other URL
-	@GetMapping(value = "/error")
+	@GetMapping("/error")
 	public String error() {
 		return "error";
 	}

@@ -13,7 +13,6 @@ body {
 #movieList {
     border-color: black;
     box-shadow: 0px 0px 20px 0px black !important;
-    
 }
 #moviePoster {
     padding-bottom: 1em;
@@ -36,4 +35,22 @@ body {
 
 .buttonLink {
     text-decoration: none;
+}
+
+#errorMsg {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#return {
+    text-align: center;
+    padding: 0 5% 0 5%;
+}
+
+#poster {
+    text-align: center;
+}
+
+#heading th {
+    min-width: 150px;
 }
