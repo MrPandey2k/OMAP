@@ -39,7 +39,7 @@ public class MoviesController {
 	// Mapping for localhost:8080/
 	@RequestMapping(value = "/")
 	public String index() {
-		return "index";
+		return "redirect:/list";
 	}
 
 	@RequestMapping("/movie-details")
@@ -57,7 +57,7 @@ public class MoviesController {
 	}
 
 	// Error handling for any other URL
-	@GetMapping(value = "/error")
+	@GetMapping("/error")
 	public String error() {
 		return "error";
 	}
