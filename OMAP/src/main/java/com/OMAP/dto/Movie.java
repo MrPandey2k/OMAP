@@ -21,13 +21,13 @@ public class Movie {
 	public String gross;
 	public String genre;
 	
+	// Getters and Setters for Movie object
 	public String getGenre() {
 		return genre;
 	}
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	// Getters and Setters
 	public String getMovieName() {
 		return movieName;
 	}
