@@ -48,7 +48,7 @@
 
 				<!-- Table Body -->
 				<tbody class="tableBody">
-					<tr th:each="movies : ${testListMovies}" th:some-field="${movies.movieId}" th:onclick="rowClicked(this.getAttribute('some-field'))">
+					<tr th:each="movies : ${ListMovies}" th:some-field="${movies.movieId}" th:onclick="rowClicked(this.getAttribute('some-field'))">
 						<!-- Thmyeleaf/JSON Reference for Movie Poster, Name, Year, Runtime, Director, and Stars -->
 						<td id="poster"><img th:src="${movies.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster"></td>
 						<td th:text="${movies.movieName}" />
