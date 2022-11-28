@@ -14,7 +14,12 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="/css/style.css">
-
+		<script type="text/javascript">
+			function Clicked(value) {
+				// Append Movie to url parameter "id=" for /movie-details
+				location.href = `http://127.0.0.1:8080/favorite?id=${value}`;
+			}
+		</script>
 		<title>OMAP</title>
 	</head>
 	<body>
@@ -22,10 +27,22 @@
 			<!-- Button to return to /list -->
             <div class="btnHome">
                 <a href="/list" class="buttonLink">
-					<button href="/list" type="button" class="w-100 btn btn-danger">Back to List</button>
+					<button href="/list" type="button" class="w-100 btn btn-danger">Home List</button>
 				</a>
             </div>
-
+            
+             <div class="btnHome">
+                <a href="/favorite-list" class="buttonLink">
+					<button href="/favorite-list" type="button" class="w-100 btn btn-danger">Favorites List</button>
+				</a>
+            </div>
+            
+            <div class="btnHome">
+            	<a class="buttonLink">
+					<button th:some-field="${selectedMovie.movieId}" th:onclick="Clicked(this.getAttribute('some-field'))" type="button" class="w-100 btn btn-danger">Add To Favorites</button>
+				</a>
+            </div>
+            
 			<!-- Heading -->
             <div class="row">
                 <div class="col-sm-3">
