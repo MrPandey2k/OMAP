@@ -20,6 +20,8 @@ public class MoviesController {
 	IMovieDAO moviedao;
 	List<Movie> allMovies = new ArrayList<Movie>();
 	List<Movie> testMovies = new ArrayList<Movie>();
+	List<Movie> favMovies = new ArrayList<Movie>();
+
 	int number = 46;
 
 	// Create movie objects from JSON data
@@ -59,7 +61,25 @@ public class MoviesController {
 		model.addAttribute("ListMovies", allMovies);
 		return "list-movies";
 	}
-
+	@GetMapping("/favorite")
+	public String favorite(@RequestParam(name="id", required=true) int id, Model model) {
+		Movie selectedMovie = allMovies.get(id);
+		boolean contains = favMovies.contains(selectedMovie);
+		if(contains) {
+			// is present in the list
+		} else {
+			// is not present in the list
+			favMovies.add(selectedMovie);
+		}
+			
+		model.addAttribute("ListMovies", favMovies);
+		return "favorite";
+	}
+	@GetMapping("/favorite-list")
+	public String favorite(Model model) {
+		model.addAttribute("ListMovies", favMovies);
+		return "favorite";
+	}
 	// Error handling for any other URL
 	@GetMapping("/error")
 	public String error() {
