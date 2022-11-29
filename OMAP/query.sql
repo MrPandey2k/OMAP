@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS  movie
 CREATE TABLE movie(
-	movie_id	INT IDENTITY(1,1)
+	movieId	INT IDENTITY(1,1)
   , posterLink   VARCHAR(200)
   , movieName   VARCHAR(100)
   , year          INTEGER 

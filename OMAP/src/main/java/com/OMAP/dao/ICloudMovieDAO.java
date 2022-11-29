@@ -1,9 +1,11 @@
 package com.OMAP.dao;
 
-import org.springframework.data.repository.CrudRepository;
-
+// import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.OMAP.dto.Movie;
 
 
-public interface ICloudMovieDAO extends CrudRepository<Movie, Long> {
+@Repository
+public interface ICloudMovieDAO extends JpaRepository<Movie, Long> {
 }

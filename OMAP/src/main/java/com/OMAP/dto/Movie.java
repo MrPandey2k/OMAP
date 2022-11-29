@@ -1,8 +1,17 @@
 package com.OMAP.dto;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+// import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.data.relational.core.mapping.Column;
 
+@Entity
+// @Table
 public class Movie {
 	public Movie () {
 		
@@ -10,8 +19,10 @@ public class Movie {
 	
 	// Instantiate variables for Movie object
 	@Id
-	@Column(value = "movie_id")
-	private int		movieId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(value = "movieId")
+	private long	movieId;
+	@NotBlank(message = "Name is mandatory")
 	@Column(value = "movieName")
 	private String 	movieName; // series_title in json
 	@Column(value = "posterLink")
@@ -19,8 +30,10 @@ public class Movie {
 	private int 		year;
 	@Column(value = "imdbRating")
 	private float 	imdbRating;
+	@NotBlank(message = "Run time is mandatory")
 	private String 	runtime;
 	private String 	director;
+	@NotBlank(message = "Lead Actor/Actress is mandatory")
 	@Column(value = "starOne")
 	private String 	starOne;
 	@Column(value = "starTwo")
@@ -31,6 +44,7 @@ public class Movie {
 	private String 	starFour;
 	private String 	overview;
 	private String 	gross;
+	@NotBlank(message = "Genre is mandatory")
 	private String 	genre;
 	
 	// Getters and Setters for Movie object
@@ -112,8 +126,8 @@ public class Movie {
 	public void setGross(String gross) {
 		this.gross = gross;
 	}
-	public int getMovieId() {
-		return movieId;
+	public long getMovieId() {
+		return  this.movieId;
 	}
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;

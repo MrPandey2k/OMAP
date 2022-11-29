@@ -19,6 +19,13 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-support</artifactId>
+			<version>0.1.8</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>in.hocg.boot</groupId>
 			<artifactId>spring-boot-web</artifactId>
 			<version>1.0.51</version>
@@ -60,7 +67,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    	<scope>runtime</scope>
+		</dependency>
+		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<!-- JSON Dependency -->
 		<dependency>
 			<groupId>org.json</groupId>
