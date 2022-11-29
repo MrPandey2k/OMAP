@@ -3,6 +3,7 @@ package com.OMAP;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.OMAP.dao.ICloudMovieDAO;
 import com.OMAP.dao.IMovieDAO;
 import com.OMAP.dto.Movie;
+import com.OMAP.dto.createMovieFormData;
+import com.OMAP.services.movieCreationParams;
+import com.OMAP.services.movieService;
 
 @Controller
 public class MoviesController {
@@ -29,11 +34,16 @@ public class MoviesController {
 
 	@Autowired
 	ICloudMovieDAO cloudMovieRepo;
+	movieService service;
 	List<Movie> cloudAllMovies = new ArrayList<Movie>();
 	List<Movie> cloudTestMovies = new ArrayList<Movie>();
 	List<Movie> cloudFavMovies = new ArrayList<Movie>();
+	
 
 	// int number = 46;
+	public MoviesController(movieService service){
+		this.service = service;
+	}
 
 	// Create movie objects from JSON data
 	@PostConstruct
@@ -70,14 +80,21 @@ public class MoviesController {
 		return "movie-details";
 	}
 
+	@GetMapping("/addMovie")
+		public String showAddForm(Model model) {
+			model.addAttribute("formData", new movieCreationParams("Enter Movie Name", "Enter Runtime", "Enter Lead", "Enter Genre"));
+			return "add-movie";
+		}
+	
 	@PostMapping("/addMovie")
-	public String addUser(@Validated Movie movie, BindingResult result, Model model){
+	public String addUser(@Valid @ModelAttribute("formData") createMovieFormData formData, BindingResult result, Model model){
+		// model.addAttribute("newMovie", movie);
 		if (result.hasErrors()) {
             return "add-movie";
         }
-		cloudMovieRepo.save(movie);
-        model.addAttribute("selectedMovie", movie);
-		return "movie-details";
+		service.createMovie(formData.toParameters());
+        model.addAttribute("selectedMovie");
+		return "redirect:/list";
 	}
 	
 	// Mapping for localhost:8080/list

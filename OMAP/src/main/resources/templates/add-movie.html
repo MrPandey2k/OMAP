@@ -1,14 +1,76 @@
-<form action="#" th:action="@{/addMovie}" th:object="${movie}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 
-    <label for="email">runtime</label>
-    <input type="text" th:field="*{runtime}" id="runtime" placeholder="runtime">
-    <span th:if="${#fields.hasErrors('runtime')}" th:errors="*{runtime}"></span>
 
-    <label for="email">starOne</label>
-    <input type="text" th:field="*{starOne}" id="starOne" placeholder="starOne">
-    <span th:if="${#fields.hasErrors('starOne')}" th:errors="*{starOne}"></span>
-    <input type="submit" value="Add User">   
-</form>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+    
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS & JS-->
+		<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous">
+		<script href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="/css/style.css">
+		
+</head>
+<body>
+<main>
+    <h1>Create Movie</h1>
+    <div class="container">
+        <div class="btnHome">
+            <a href="/list" class="buttonLink">
+                <button href="/list" type="button" class="w-100 btn btn-danger">Home List</button>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+    <form th:object="${formData}"
+          th:action="@{/addMovie}"
+          method="post"> 
+        <div>
+            <label for="movieName">Given name</label>
+            <input id="movieName" type="text"
+                   th:field="*{movieName}"> 
+            <p th:if="${#fields.hasErrors('movieName')}"
+               th:text="${#strings.listJoin(#fields.errors('movieName'), ', ')}"></p> 
+        </div>
+        <div>
+            <label for="runtime">Run time</label>
+            <input id="runtime" type="text"
+                   th:field="*{runtime}">
+            <p th:if="${#fields.hasErrors('runtime')}"
+               th:text="${#strings.listJoin(#fields.errors('runtime'), ', ')}"></p>
+        </div>
+        <div>
+            <label for="starOne">Lead Actor/Actress</label>
+            <input id="starOne" type="text"
+                   th:field="*{starOne}"> 
+            <p th:if="${#fields.hasErrors('starOne')}"
+               th:text="${#strings.listJoin(#fields.errors('starOne'), ', ')}"></p> 
+        </div>
+        <div>
+            <label for="genre">Given name</label>
+            <input id="genre" type="text"
+                   th:field="*{genre}"> 
+            <p th:if="${#fields.hasErrors('genre')}"
+               th:text="${#strings.listJoin(#fields.errors('genre'), ', ')}"></p> 
+        </div>
+        <div class="container">
+        <button type="submit">Create user</button>
+    </div>
+    </form>
+</div>
+</main>
+
+</body>
+</html>
+

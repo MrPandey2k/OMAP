@@ -13,10 +13,8 @@ import org.springframework.data.relational.core.mapping.Column;
 @Entity
 // @Table
 public class Movie {
-	public Movie () {
-		
-	}
 	
+
 	// Instantiate variables for Movie object
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,6 +44,26 @@ public class Movie {
 	private String 	gross;
 	@NotBlank(message = "Genre is mandatory")
 	private String 	genre;
+
+	public Movie () {
+		
+	}
+	
+	public Movie(String movieName, String runtime, String starOne, String genre) {
+		this.movieName = movieName;
+		this.runtime = runtime;
+		this.starOne = starOne;
+		this.genre = genre;
+		this.director = "";
+		this.starTwo= "";
+		this.starThree= "";
+		this.starFour= "";
+		this.gross= "";
+		this.posterLink="";
+		this.year = 0;
+		this.gross = "0";
+		this.imdbRating = 0;
+	}
 	
 	// Getters and Setters for Movie object
 	public String getGenre() {
