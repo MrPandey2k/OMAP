@@ -1,25 +1,35 @@
 package com.OMAP.dto;
 
+import org.springframework.data.relational.core.mapping.Column;
+
 public class Movie {
 	public Movie () {
 		
 	}
 	
 	// Instantiate variables for Movie object
-	public int movieId;
-	public String movieName; // series_title in json
-	public String posterLink; // url img to movie poster
-	public int year;
-	public float imdbRating;
-	public String runtime;
-	public String director;
-	public String starOne;
-	public String starTwo;
-	public String starThree;
-	public String starFour;
-	public String overview;
-	public String gross;
-	public String genre;
+	@Column(value = "movie_id")
+	public int 		movieId;
+	@Column(value = "movieName")
+	public String 	movieName; // series_title in json
+	@Column(value = "posterLink")
+	public String 	posterLink; // url img to movie poster
+	public int 		year;
+	@Column(value = "imdbRating")
+	public float 	imdbRating;
+	public String 	runtime;
+	public String 	director;
+	@Column(value = "starOne")
+	public String 	starOne;
+	@Column(value = "starTwo")
+	public String 	starTwo;
+	@Column(value = "starThree")
+	public String 	starThree;
+	@Column(value = "starFour")
+	public String 	starFour;
+	public String 	overview;
+	public String 	gross;
+	public String 	genre;
 	
 	// Getters and Setters for Movie object
 	public String getGenre() {

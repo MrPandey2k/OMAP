@@ -106,3 +106,4 @@ local.properties
 
 maven-wrapper*
 mvnw*
+OMAP/src/main/resources/application.properties
