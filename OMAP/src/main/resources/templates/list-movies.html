@@ -14,6 +14,7 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/transition.css">
 		
 		<!-- Script to make Rows Clickable -->
 		<script type="text/javascript">
@@ -22,16 +23,19 @@
 				location.href = `http://127.0.0.1:8080/movie-details?id=${value}`;
 			}
 		</script>
-
 		<title>OMAP - Movie List</title>
 		
 	</head>
 	<body>
+	
 		<div class="container">
 			<!-- Heading -->
 			<h4>Movie Archive</h4>
+			<a href="/favorite-list" class="buttonLink2">
+					<button href="/favorite-list" type="button" class="w-50 btn btn-danger">Add A Movie</button>
+				</a>
 				<a href="/favorite-list" class="buttonLink">
-					<button href="/favorite-list" type="button" class="w-100 btn btn-danger">Favorites List</button>
+					<button href="/favorite-list" type="button" class="w-100 btn btn-danger">Favorites </button>
 				</a>
 			<hr class="break">
 

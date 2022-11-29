@@ -36,7 +36,9 @@ body {
 .buttonLink {
     text-decoration: none;
 }
-
+.buttonLink2{
+	text-decoration: none;
+}
 #errorMsg {
     text-align: center;
     padding-bottom: 25px;
@@ -54,3 +56,18 @@ body {
 #heading th {
     min-width: 150px;
 }
+#container{
+	animation:transitionIn 0.75s;
+}
+
+@keyframes transitionIn {
+	from {
+	opacity: 0;
+	transform: rotateX(-10deg);
+	}
+	
+  to {
+  opacity: 1;
+  transform: rotateX(0);}
+}
+
