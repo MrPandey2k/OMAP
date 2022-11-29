@@ -35,9 +35,13 @@ body {
 
 .buttonLink {
     text-decoration: none;
+    padding:  10px 10px 10px 10px;
+    
 }
 .buttonLink2{
 	text-decoration: none;
+	padding: 5% 5% 0 5%;
+	
 }
 #errorMsg {
     text-align: center;
