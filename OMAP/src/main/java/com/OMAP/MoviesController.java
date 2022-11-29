@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.OMAP.dao.ICloudMovieDAO;
 import com.OMAP.dao.IMovieDAO;
 import com.OMAP.dto.Movie;
 
@@ -22,13 +23,21 @@ public class MoviesController {
 	List<Movie> testMovies = new ArrayList<Movie>();
 	List<Movie> favMovies = new ArrayList<Movie>();
 
-	int number = 46;
+	@Autowired
+	ICloudMovieDAO cloudMovieRepo;
+	List<Movie> cloudAllMovies = new ArrayList<Movie>();
+	List<Movie> cloudTestMovies = new ArrayList<Movie>();
+	List<Movie> cloudFavMovies = new ArrayList<Movie>();
+
+	// int number = 46;
 
 	// Create movie objects from JSON data
 	@PostConstruct
 	private void loadData() {
 		try {
 			allMovies = moviedao.getMovies();
+			cloudAllMovies = (List<Movie>) cloudMovieRepo.findAll();
+
 		}
 		// Any Exception will be caught and returned to the user in the output
 		catch (Exception e) {
@@ -58,7 +67,7 @@ public class MoviesController {
 	@GetMapping("/list")
 	public String list(Model model) {
 		// Select all movies and add content to /list page
-		model.addAttribute("ListMovies", allMovies);
+		model.addAttribute("ListMovies", cloudAllMovies);
 		return "list-movies";
 	}
 	@GetMapping("/favorite")
