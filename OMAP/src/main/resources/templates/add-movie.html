@@ -6,10 +6,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Movie</title>
+    
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS & JS-->
+		<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous">
+		<script href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="/css/style.css">
+		
 </head>
 <body>
 <main>
     <h1>Create Movie</h1>
+    <div class="container">
+        <div class="btnHome">
+            <a href="/list" class="buttonLink">
+                <button href="/list" type="button" class="w-100 btn btn-danger">Home List</button>
+            </a>
+        </div>
+    </div>
+    <div class="container">
     <form th:object="${formData}"
           th:action="@{/addMovie}"
           method="post"> 
@@ -41,8 +64,11 @@
             <p th:if="${#fields.hasErrors('genre')}"
                th:text="${#strings.listJoin(#fields.errors('genre'), ', ')}"></p> 
         </div>
+        <div class="container">
         <button type="submit">Create user</button>
+    </div>
     </form>
+</div>
 </main>
 
 </body>
