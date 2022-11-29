@@ -37,7 +37,6 @@ public class MoviesController {
 		try {
 			allMovies = moviedao.getMovies();
 			cloudAllMovies = (List<Movie>) cloudMovieRepo.findAll();
-
 		}
 		// Any Exception will be caught and returned to the user in the output
 		catch (Exception e) {
@@ -55,11 +54,15 @@ public class MoviesController {
 	@RequestMapping("/movie-details")
 	public String movieDetails(@RequestParam(name="id", required=true) int id, Model model) {
 		// Select movie from "id" param in URL
-		Movie selectedMovie = allMovies.get(id);
-		
+		// Movie selectedMovie = allMovies.get(id);
+		try{
+		Movie selectedMovie =  cloudMovieRepo.findById((long) id).get();
 		// Add content to /movie-details page
 		model.addAttribute("selectedMovie",selectedMovie);
-
+		}
+		catch(IllegalArgumentException e){
+			return "error";
+		}
 		return "movie-details";
 	}
 	

@@ -1,5 +1,6 @@
 package com.OMAP.dto;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
 public class Movie {
@@ -8,28 +9,29 @@ public class Movie {
 	}
 	
 	// Instantiate variables for Movie object
+	@Id
 	@Column(value = "movie_id")
-	public int 		movieId;
+	private int		movieId;
 	@Column(value = "movieName")
-	public String 	movieName; // series_title in json
+	private String 	movieName; // series_title in json
 	@Column(value = "posterLink")
-	public String 	posterLink; // url img to movie poster
-	public int 		year;
+	private String 	posterLink; // url img to movie poster
+	private int 		year;
 	@Column(value = "imdbRating")
-	public float 	imdbRating;
-	public String 	runtime;
-	public String 	director;
+	private float 	imdbRating;
+	private String 	runtime;
+	private String 	director;
 	@Column(value = "starOne")
-	public String 	starOne;
+	private String 	starOne;
 	@Column(value = "starTwo")
-	public String 	starTwo;
+	private String 	starTwo;
 	@Column(value = "starThree")
-	public String 	starThree;
+	private String 	starThree;
 	@Column(value = "starFour")
-	public String 	starFour;
-	public String 	overview;
-	public String 	gross;
-	public String 	genre;
+	private String 	starFour;
+	private String 	overview;
+	private String 	gross;
+	private String 	genre;
 	
 	// Getters and Setters for Movie object
 	public String getGenre() {

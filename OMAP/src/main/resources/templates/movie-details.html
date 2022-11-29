@@ -41,7 +41,7 @@
             
             <div class="btnHome">
             	<a class="buttonLink">
-					<button th:some-field="${selectedMovie.movieId}" th:onclick="Clicked(this.getAttribute('some-field'))" type="button" class="w-100 btn btn-danger">Add To Favorites</button>
+					<button th:some-field="${selectedMovie.getMovieId()}" th:onclick="Clicked(this.getAttribute('some-field'))" type="button" class="w-100 btn btn-danger">Add To Favorites</button>
 				</a>
             </div>
             
@@ -49,8 +49,8 @@
             <div class="row">
                 <div class="col-sm-3">
 					<!-- Movie & Year -->
-                    <h3 th:text="${selectedMovie.movieName}"></h3>
-                    <h6 th:text="${selectedMovie.year}"></h6>
+                    <h3 th:text="${selectedMovie.getMovieName()}"></h3>
+                    <h6 th:text="${selectedMovie.getYear()}"></h6>
                 </div>
             </div>
 
@@ -60,32 +60,32 @@
             <div class="row">
                 <div class="col-sm-10">
 					<!-- Description -->
-                	<p th:text="${selectedMovie.overview}"></p>
+                	<p th:text="${selectedMovie.getOverview()}"></p>
 
                     <hr class="break">
 
 					<!-- Director -->
                     <h5><strong>Director</strong></h5>
-                    <p th:text="${selectedMovie.director}"></p>
+                    <p th:text="${selectedMovie.getDirector()}"></p>
 
                     <hr class="break">
 
 					<!-- Actors -->
                     <h5><strong>Stars</strong></h5>
-                    <p th:text="${selectedMovie.starOne}"></p>
-                    <p th:text="${selectedMovie.starTwo}"></p>
-                   	<p th:text="${selectedMovie.starThree}"></p>
-              		<p th:text="${selectedMovie.starFour}"></p>
+                    <p th:text="${selectedMovie.getStarOne()}"></p>
+                    <p th:text="${selectedMovie.getStarTwo()}"></p>
+                   	<p th:text="${selectedMovie.getStarThree()}"></p>
+              		<p th:text="${selectedMovie.getStarFour()}"></p>
    
                     <hr class="break">
                 </div>
 
 				<div class="col-sm-2">
 					<!-- Poster, Runtime, Genre & Rating -->
-					<img th:src="${selectedMovie.posterLink}" class="rounded" id="moviePoster" alt="Movie Poster">
-					<h6 th:text="${selectedMovie.runtime}"></h6>
-					<h6 th:text="${selectedMovie.genre}"></h6>
-					<h6 th:text="${selectedMovie.imdbRating}"></h6>
+					<img th:src="${selectedMovie.getPosterLink()}" class="rounded" id="moviePoster" alt="Movie Poster">
+					<h6 th:text="${selectedMovie.getRuntime()}"></h6>
+					<h6 th:text="${selectedMovie.getGenre()}"></h6>
+					<h6 th:text="${selectedMovie.getImdbRating()}"></h6>
 				</div>
 			</div>
 			<br/>
