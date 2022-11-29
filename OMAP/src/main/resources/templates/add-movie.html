@@ -1,0 +1,14 @@
+<form action="#" th:action="@{/addMovie}" th:object="${movie}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+    <label for="email">runtime</label>
+    <input type="text" th:field="*{runtime}" id="runtime" placeholder="runtime">
+    <span th:if="${#fields.hasErrors('runtime')}" th:errors="*{runtime}"></span>
+
+    <label for="email">starOne</label>
+    <input type="text" th:field="*{starOne}" id="starOne" placeholder="starOne">
+    <span th:if="${#fields.hasErrors('starOne')}" th:errors="*{starOne}"></span>
+    <input type="submit" value="Add User">   
+</form>
